@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Coffee Shop{% endblock %}
+
+{% block body %}
+
+    <section class="slider">
+        <div class="container">
+            <h1>Le bon café, torréfié avec soin</h1>
+            <p>Des grains sélectionnés chez de petits producteurs, torréfiés en petites quantités pour vous offrir le meilleur de chaque origine.</p>
+            <a href="{{ path('app_produit') }}" class="btn">Découvrir nos cafés</a>
+        </div>
+    </section>
+
+    <section class="apropos">
+        <div class="container">
+            <h2>A propos de nous</h2>
+            <p>Depuis plus de dix ans, nous choisissons nos cafés directement auprès des producteurs. Chaque lot est goûté, torréfié et préparé dans notre atelier. Notre but est simple : vous faire découvrir des cafés de qualité, avec des saveurs différentes selon leur origine.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Cafés en tendance</h2>
+            <div class="grille">
+                {% include 'blocs/_card.html.twig' with {
+                    nom: 'Espresso Intense', pays: 'Colombie', marque: 'Lavazza', note: 4.5, prix: '12,50', image: 'cafe1.jpg'
+                } %}
+                {% include 'blocs/_card.html.twig' with {
+                    nom: 'Moka Doux', pays: 'Ethiopie', marque: 'Illy', note: 4.8, prix: '14,00', image: 'cafe2.jpg'
+                } %}
+                {% include 'blocs/_card.html.twig' with {
+                    nom: 'Mélange Maison', pays: 'Brésil', marque: 'Malongo', note: 4.2, prix: '10,90', image: 'cafe3.jpg'
+                } %}
+            </div>
+        </div>
+    </section>
+
+    <section class="temoignages">
+        <div class="container">
+            <h2>Ils nous font confiance</h2>
+            <div class="grille">
+                <div class="avis">
+                    <p>"Le meilleur café que j'ai goûté, je commande chaque mois."</p>
+                    <span>Marie D.</span>
+                </div>
+                <div class="avis">
+                    <p>"Des saveurs très différentes selon les origines, j'adore."</p>
+                    <span>Thomas L.</span>
+                </div>
+                <div class="avis">
+                    <p>"Equipe accueillante et conseils très utiles pour choisir."</p>
+                    <span>Sarah B.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits - Coffee Shop{% endblock %}
+
+{% block body %}
+
+    <section>
+        <div class="container">
+            <h2>Nos produits</h2>
+
+            <form class="filtre" method="get" action="{{ path('app_produit') }}">
+                <div>
+                    <label for="marque">Marque</label>
+                    <select name="marque" id="marque">
+                        <option value="">Toutes</option>
+                        <option value="Lavazza">Lavazza</option>
+                        <option value="Illy">Illy</option>
+                        <option value="Malongo">Malongo</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="categorie">Catégorie</label>
+                    <select name="categorie" id="categorie">
+                        <option value="">Toutes</option>
+                        <option value="grains">Grains</option>
+                        <option value="moulu">Moulu</option>
+                        <option value="capsules">Capsules</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="prix_max">Prix maximum (€)</label>
+                    <input type="number" name="prix_max" id="prix_max" min="0">
+                </div>
+                <button type="submit" class="btn">Filtrer</button>
+            </form>
+
+            <div class="grille">
+                {% include 'blocs/_card.html.twig' with {
+                    nom: 'Espresso Intense', pays: 'Colombie', marque: 'Lavazza', note: 4.5, prix: '12,50', image: 'cafe1.jpg'
+                } %}
+                {% include 'blocs/_card.html.twig' with {
+                    nom: 'Moka Doux', pays: 'Ethiopie', marque: 'Illy', note: 4.8, prix: '14,00', image: 'cafe2.jpg'
+                } %}
+                {% include 'blocs/_card.html.twig' with {
+                    nom: 'Mélange Maison', pays: 'Brésil', marque: 'Malongo', note: 4.2, prix: '10,90', image: 'cafe3.jpg'
+                } %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

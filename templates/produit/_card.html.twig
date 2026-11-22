@@ -1,0 +1,9 @@
+<article class="card">
+    <img src="{{ asset('images/' ~ produit.image) }}" alt="{{ produit.nom }}">
+    <div class="card-body">
+        <p class="origine">{{ produit.pays }} · {{ produit.marque }}</p>
+        <h3>{{ produit.nom }}</h3>
+        <p>Note : {{ produit.note }}/5</p>
+        <p class="prix">{{ produit.prix }} €</p>
+    </div>
+</article>

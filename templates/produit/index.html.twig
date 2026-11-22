@@ -22,9 +22,9 @@
                     <label for="categorie">Catégorie</label>
                     <select name="categorie" id="categorie">
                         <option value="">Toutes</option>
-                        <option value="grains">Grains</option>
-                        <option value="moulu">Moulu</option>
-                        <option value="capsules">Capsules</option>
+                        <option value="Grains">Grains</option>
+                        <option value="Moulu">Moulu</option>
+                        <option value="Capsules">Capsules</option>
                     </select>
                 </div>
                 <div>
@@ -35,15 +35,11 @@
             </form>
 
             <div class="grille">
-                {% include 'blocs/_card.html.twig' with {
-                    nom: 'Espresso Intense', pays: 'Colombie', marque: 'Lavazza', note: 4.5, prix: '12,50', image: 'cafe1.jpg'
-                } %}
-                {% include 'blocs/_card.html.twig' with {
-                    nom: 'Moka Doux', pays: 'Ethiopie', marque: 'Illy', note: 4.8, prix: '14,00', image: 'cafe2.jpg'
-                } %}
-                {% include 'blocs/_card.html.twig' with {
-                    nom: 'Mélange Maison', pays: 'Brésil', marque: 'Malongo', note: 4.2, prix: '10,90', image: 'cafe3.jpg'
-                } %}
+               {% for produit in produits %}
+                    {{ include('produit/_card.html.twig', {produit: produit}) }}
+                {% else %}
+                    <p>Aucun produit pour le moment.</p>
+                {% endfor %}
             </div>
         </div>
     </section>

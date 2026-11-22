@@ -8,11 +8,19 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+    #[Route('/accueil', name: 'app_home', methods: ['GET'])]
     public function index(): Response
     {
+        $tendances = [];
+
+        foreach (ProduitController::PRODUITS as $produit) {
+            if ($produit['meilleure_vente']) {
+                $tendances[] = $produit;
+            }
+        }
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'produits' => $tendances,
         ]);
     }
 }

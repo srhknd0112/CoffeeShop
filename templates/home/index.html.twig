@@ -1,3 +1,4 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Accueil - Coffee Shop{% endblock %}
@@ -6,9 +7,19 @@
 
     <section class="slider">
         <div class="container">
-            <h1>Le bon café, torréfié avec soin</h1>
-            <p>Des grains sélectionnés chez de petits producteurs, torréfiés en petites quantités pour vous offrir le meilleur de chaque origine.</p>
-            <a href="{{ path('app_produit') }}" class="btn">Découvrir nos cafés</a>
+            {% if slider %}
+                <h1>{{ slider.title }}</h1>
+                <p>{{ slider.content }}</p>
+
+                {% if slider.buttonText and slider.buttonLink %}
+                    <a href="{{ slider.buttonLink }}" class="btn">
+                        {{ slider.buttonText }}
+                    </a>
+                {% endif %}
+            {% else %}
+                <h1>Bienvenue chez Coffee Shop</h1>
+                <p>Découvrez nos cafés.</p>
+            {% endif %}
         </div>
     </section>
 
